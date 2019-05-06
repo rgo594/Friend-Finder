@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_05_04_181502) do
 
+  create_table "events", force: :cascade do |t|
+  end
+
   create_table "user_events", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -20,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_05_04_181502) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "event_id"
     t.index ["user_id"], name: "index_user_events_on_user_id"
   end
 
