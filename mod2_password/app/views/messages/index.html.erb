@@ -1,0 +1,12 @@
+<h1>Message Index Page</h1>
+
+
+<ul>
+
+  <li><% @messages.each do |message| %></li>
+  <li><%= message.title %></li>
+      <%= link_to "View Message", message_path(message) %>
+      <% end %>
+</ul>
+
+<%=link_to "New Message", new_message_path  %>

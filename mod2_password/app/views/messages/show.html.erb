@@ -1,0 +1,13 @@
+<h1>Show Message Page</h1>
+
+
+<h2><%= @message.title %></h2>
+<p><%= @message.desciption %></p>
+
+<h4>Comments</h4>
+
+ <%= render :comment%>
+
+<%= link_to "Edit", edit_message_path(@message) %>
+<%= link_to "Back", messages_path(@messages)%>
+<%= link_to "Delete", message_path, method: :delete %>
