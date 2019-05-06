@@ -35,5 +35,10 @@
   <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if @user.first_name == current_user.first_name %>
+  <%= button_to "Delete", @user, method: :delete %>
+<% end %>
+
+<% if @user.first_name == current_user.first_name %>
+  <%= button_to "Edit", "/user_events/#{@user.id}/edit", method: :get %>
+<% end %>

@@ -6,12 +6,13 @@ class UserEventsController < ApplicationController
 
   def show
     @user_event = UserEvent.find(params[:id])
+    @creator = @user_event.user.first_name
   end
 
   def new
     @users = User.all
     @user_event = UserEvent.new
-    @name = current_user.first_name
+    # @name = current_user.first_name
   end
 
   def create

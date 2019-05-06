@@ -1,8 +1,9 @@
 <h1> Events </h1>
 
 <% @user_events.each do |user_event| %>
-  <%= link_to user_event.title, user_event %>
-  <%= user_event.location%>
-  <%= user_event.date %>
-  <%= user_event.user.first_name%>
+  <div><p><%= link_to user_event.title, user_event %>
+  Location: <%= user_event.location%>
+  Date: <%= user_event.date %>
+  Organizer: <%= user_event.user.first_name%></p></div>
 <% end %>
+<%= link_to 'Homepage', root_path %>
