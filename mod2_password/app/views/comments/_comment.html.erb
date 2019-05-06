@@ -1,3 +1,4 @@
 <p><%= comment.content %></p>
 
  <%= link_to "Edit", edit_message_comment_path(comment.message, comment) %> # comment.message corrspond to the comment that message are for second comment correspond to individual comments
+ <%= link_to "Delete", message_comment_path(comment.message, comment), method: :delete %>

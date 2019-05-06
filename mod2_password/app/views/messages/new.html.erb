@@ -1,8 +1,10 @@
 <h1>New Messages</h1>
 
 
-<p><%= form_for @message do |f| %></p>
-<p><%= f.label :title %></p>
-<p><%= f.text_field :title %></p>
-<p><%= f.input :desciptions %></p>
-<p><%= f.submit  %></p>
+<h3><%= form_for @message do |f| %></h3>
+<h3><%= f.label :title %></h3>
+<h3><%= f.text_field :title %></h3>
+<h3><%= f.label :description%></h3>
+<h3><%= f.text_area :description%></h3>
+<h3><%= f.submit  %></h3>
+<%end%>

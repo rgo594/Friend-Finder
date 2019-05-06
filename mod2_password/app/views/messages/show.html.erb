@@ -2,11 +2,11 @@
 
 
 <h2><%= @message.title %></h2>
-<p><%= @message.desciption %></p>
+<p><%= @message.description %></p>
+<p><%=  @message.user.first_name %></p>
 
-<h4>Comments</h4>
 
- <%= render :comment%>
+
 
 <%= link_to "Edit", edit_message_path(@message) %>
 <%= link_to "Back", messages_path(@messages)%>

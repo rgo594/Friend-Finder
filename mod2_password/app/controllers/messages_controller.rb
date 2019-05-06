@@ -10,12 +10,14 @@ class MessagesController < ApplicationController
   end
 
   def new
-    @messages = current_user.messages.build
+    @message = Message.new
+    # @message = Message.new
   end
 
   def create
-    @messages = current_user.messages.build(message_params)
-    if @messages.save
+    @message = Message.new(message_params)
+    if @message.user_id = current_user.id
+    # @message = Message.new(message_params)
       redirect_to messages_path
     else
       render :new
@@ -46,7 +48,7 @@ class MessagesController < ApplicationController
 
 
     def message_params
-      params.require(:message).permit(:title, :desciption)
+      params.require(:message).permit(:title, :description)
     end
 
     def find_message
