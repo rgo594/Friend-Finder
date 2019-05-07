@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+<img src="<%= @user.profile_pic %>"> </p>
+<p>
   <strong>First name:</strong>
   <%= @user.first_name %>
 </p>
@@ -31,9 +33,22 @@
 </p>
 
 <p>
+  <strong>Zip:</strong>
+  <%= @user.zip %>
+</p>
+
+<p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<% if @user1 == current_user2 %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>
+
+<!-- <% if @user1 == current_user2 %>
+  <%= button_to "Delete", @user, method: :delete %>
+<% end %> BE CAREFUL OF THIS ONE !_! -->
+
+
 <%= link_to 'Back', users_path %>

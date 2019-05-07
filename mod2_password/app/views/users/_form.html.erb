@@ -37,6 +37,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :zip %>
+    <%= form.text_field :zip %>
+  </div>
+
+  <div class="field">
     <%= form.label 'time lived in nyc' %>
     <%= form.text_field :duration %>
   </div>
@@ -54,6 +59,11 @@
   <div class="field">
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Profile picture" %>
+    <%= form.text_field :profile_pic %>
   </div>
 
   <div class="actions">

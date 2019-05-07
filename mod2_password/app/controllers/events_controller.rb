@@ -59,8 +59,8 @@ class EventsController < ApplicationController
 
     def user_id
       UserEvent.select do |event|
-         if event.event_id == event.id
-           @user_id = event.user.id
+         if event.event_id == @event.id
+           @user_id = event.user_id
           end
         end
       end
@@ -69,6 +69,6 @@ class EventsController < ApplicationController
     private
 
     def event_params
-      params.require(:event).permit(:title, :description, :location, :date, :user_id, :event_id)
+      params.require(:event).permit(:title, :description, :location, :date, :user_id, :event_id, :profile_pic)
     end
 end
