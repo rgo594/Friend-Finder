@@ -2,11 +2,12 @@
 <%= @event.location %>
 <%= @event.date %>
 <%= @event.description %>
-<% UserEvent.select do |event| %>
-  <% if event.event_id == @event.id %>
-    <%= event.user.first_name %>
-  <% end %>
+<%= @user %>
+
+<% if @user == current_user.first_name %>
+  <%= button_to "Delete", @event, method: :delete %>
 <% end %>
 
-<%= button_to "Delete", @event, method: :delete %>
-<%=  %>
+<% if @user == current_user.first_name %>
+  <%= button_to "Edit", "/events/#{@event.id}/edit", method: :get %>
+<% end %>

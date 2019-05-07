@@ -5,6 +5,8 @@ class EventsController < ApplicationController
 
     def show
       @event = Event.find(params[:id])
+      user_name
+      user_id
     end
 
     def new
@@ -46,6 +48,23 @@ class EventsController < ApplicationController
       end
       redirect_to events_path
     end
+
+    def user_name
+      UserEvent.select do |event|
+         if event.event_id == @event.id
+           @user = event.user.first_name
+        end
+      end
+    end
+
+    def user_id
+      UserEvent.select do |event|
+         if event.event_id == event.id
+           @user_id = event.user.id
+          end
+        end
+      end
+
 
     private
 
