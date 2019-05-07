@@ -1,0 +1,9 @@
+<%= @event.title %>
+<%= @event.location %>
+<%= @event.date %>
+<%= @event.description %>
+<%= @event.users.each do |u| %>
+  <%= u.first_name %>
+<% end %>
+
+<%= button_to "Delete", @event, method: :delete %>

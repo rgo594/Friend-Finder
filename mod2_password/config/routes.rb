@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
 
-   resources :users, :user_events
+   resources :users, :user_events, :events
    resources :sessions, only: [:new, :create, :destroy]
 
    get 'signup', to: 'users#new', as: 'signup'
