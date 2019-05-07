@@ -1,3 +1,4 @@
 class Message < ApplicationRecord
-  has_many :users, through: :comments
+  belongs_to :user
+  has_many :comments 
 end

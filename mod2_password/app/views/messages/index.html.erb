@@ -2,10 +2,9 @@
 
 
 <ul>
-
   <li><% @messages.each do |message| %></li>
-  <li><%= message.title %></li>
-      <%= link_to "View Message", message_path(message) %>
+  <li><%= message.title %> <%= link_to "View Message", message_path(message) %>
+
       <% end %>
 </ul>
 

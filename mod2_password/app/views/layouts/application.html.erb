@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mod2Password</title>
+    <title>Friend Finder App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="navbar navnar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <%= link_to "Stories", messages_path, class: 'navbar-brand'%>
+
+        </div>
+        <ul class="nav navbar-nav">
+          <li><%= <%= link_to "Sign up", signup_path%></li>
+            <%= if user_signed_in? %>
+            <li><%= link_to "Sign Out", logout_path, method: :delete %></li>
+            <%else%>
+            <li><%= link_to "Sign In", logout_path%></li>
+            <%end%>
+        </ul>
+        <% if user_signed_in? %>
+        <p><%=link_to "New Message", new_message_path, class: "navbar-right navbar-text navbar-Link" %></p>
+        <%end%>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>

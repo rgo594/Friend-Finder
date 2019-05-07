@@ -2,12 +2,19 @@
 
 
 <h2><%= @message.title %></h2>
-<p><%= @message.description %></p>
-<p><%=  @message.user.first_name %></p>
+<p>Posted by <%= @message.user.email %></p>
+<h1><%= @message.description %></h1>
+
+
+<h2>Comments:</h2>
+<%= render @message.comments%>
+<h2>Comment</h2>
+<%= render 'comments/form'%>
 
 
 
 
+<%= link_to 'Profile', users_path %>
 <%= link_to "Edit", edit_message_path(@message) %>
-<%= link_to "Back", messages_path(@messages)%>
+<%= link_to "Back", messages_path(@messages) %>
 <%= link_to "Delete", message_path, method: :delete %>

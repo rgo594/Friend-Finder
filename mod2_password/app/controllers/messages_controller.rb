@@ -10,12 +10,13 @@ class MessagesController < ApplicationController
   end
 
   def new
+    @users = User.all
     @message = Message.new
     # @message = Message.new
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = Message.create(message_params)
     if @message.user_id = current_user.id
     # @message = Message.new(message_params)
       redirect_to messages_path

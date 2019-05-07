@@ -1,0 +1,7 @@
+
+<%= form_for ([@message, @message.comments.build]) do |f| %>
+<%= f.label :comment %>
+<%= f.text_field :context %>
+<%= f.submit%>
+
+<% end %>
