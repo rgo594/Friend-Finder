@@ -8,17 +8,17 @@ class EventsController < ApplicationController
     end
 
     def new
-      @users = User.all
       @event = Event.new
-      @name = current_user.first_name
     end
 
     def create
+      # @user_event = UserEvent.new
+      @user = current_user
       @event = Event.new(event_params)
-      if @event.users.ids[0] = current_user.id
+      if @event.valid?
         @event.save
+        @user_event = UserEvent.create(event_id: @event.id, user_id: current_user.id)
         redirect_to @event
-        # byebug
       else
         flash[:message] = "Have to be a user to create an event"
         render 'users/new'
@@ -39,7 +39,11 @@ class EventsController < ApplicationController
 
     def destroy
       @event = Event.find(params[:id])
-      @event.destroy
+      UserEvent.select do |event|
+        if event.event_id == @event.id
+          event.destroy && @event.destroy
+        end
+      end
       redirect_to events_path
     end
 

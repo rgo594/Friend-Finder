@@ -2,8 +2,11 @@
 <%= @event.location %>
 <%= @event.date %>
 <%= @event.description %>
-<%= @event.users.each do |u| %>
-  <%= u.first_name %>
+<% UserEvent.select do |event| %>
+  <% if event.event_id == @event.id %>
+    <%= event.user.first_name %>
+  <% end %>
 <% end %>
 
 <%= button_to "Delete", @event, method: :delete %>
+<%=  %>
