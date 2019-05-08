@@ -1,0 +1,5 @@
+<% @events.each do |event| %>
+  <% if @event_ids.any?{|eid| eid == event.id} %>
+    <%= link_to event.title, event %>
+  <% end %>
+<% end %>

@@ -65,6 +65,12 @@ class EventsController < ApplicationController
         end
       end
 
+    def my_events
+      @events = Event.all
+      @user_event = UserEvent.select{|ue| ue.user_id == current_user.id}
+      @event_ids = @user_event.map{|ue| ue.event_id}
+    end
+
 
     private
 

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-
+  get '/events/my_events', to: 'events#my_events'
    resources :users, :user_events, :events
    resources :sessions, only: [:new, :create, :destroy]
 
