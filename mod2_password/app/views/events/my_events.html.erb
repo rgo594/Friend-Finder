@@ -1,5 +1,10 @@
 <% @events.each do |event| %>
   <% if @event_ids.any?{|eid| eid == event.id} %>
-    <%= link_to event.title, event %>
+    <br><%= link_to event.title, event %></br>
+    <br><p> Location: <%= event.location %>
+    Date: <%= event.date %></p></br>
   <% end %>
 <% end %>
+
+
+<%= link_to 'Back', :back %>

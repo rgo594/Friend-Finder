@@ -41,9 +41,15 @@
   <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>
 
+<%  %>
+
+<%= link_to "Add Friend", users_add_friend_path, method: :post %>
+
 <!-- <% if @user1 == current_user2 %>
   <%= button_to "Delete", @user, method: :delete %>
 <% end %> BE CAREFUL OF THIS ONE !_! -->
 
 
 <%= link_to 'Back', users_path %>
+
+<%= @friend %>
