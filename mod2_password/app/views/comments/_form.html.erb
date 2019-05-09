@@ -1,0 +1,6 @@
+<%= form_for ([@story, @story.comments.build]) do |f| %>
+<%= f.label :comment %>
+<%= f.text_field :context %>
+<%= f.submit%>
+
+<% end %>
