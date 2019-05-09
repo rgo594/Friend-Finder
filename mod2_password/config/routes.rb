@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   delete '/stories/:story_id/comments/:id', to: 'comments#destroy', as: "delete"
 
-
+  delete '/users/unfollow', to: 'users#unfollow'
   post '/events/follow_event', to: 'events#follow_event'
   post '/users/add_friend', to: 'users#add_friend'
   get '/users/my_friends', to: 'users#my_friends'
   get '/events/my_events', to: 'events#my_events'
+
   resources :users, :user_events, :events
   resources :sessions, only: [:new, :create, :destroy]
      resources :stories do

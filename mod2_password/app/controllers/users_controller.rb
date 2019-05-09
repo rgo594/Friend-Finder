@@ -73,6 +73,18 @@ class UsersController < ApplicationController
     @follower_ids = @user_event.map{|ue| ue.follower}
   end
 
+  def unfollow
+      @user = User.find(params[:id])
+      UserEvent.select do |user|
+        if user.follower == @user.id
+          user.destroy
+        end
+      end
+      redirect_to @user
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -83,4 +95,3 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :age, :description, :from, :duration, :email, :password, :password_confirmation, :profile_pic, :zip)
     end
-end

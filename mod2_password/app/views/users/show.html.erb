@@ -38,6 +38,8 @@
 </p>
 
 
+  <%= button_to "Unfollow", users_unfollow_path(:controller => "users", :id => @user1.id), method: :delete %>
+
 
 <% if @user1 != current_user2 %>
   <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => @user1.id )%>
