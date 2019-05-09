@@ -2,38 +2,56 @@
 
 <h1>Users</h1>
 
-<table>
+<!-- <table>
   <thead>
     <tr>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Name</th>
       <th>Age</th>
-      <th>Description</th>
+      <th>Bio</th>
       <th>From</th>
       <th>Duration</th>
       <th>Email</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+  </thead> -->
 
-  <tbody>
+  <!-- <tbody> -->
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
+      <!-- <tr>
+        <td><%= user.full_name %></td>
         <td><%= user.age %></td>
         <td><%= user.description %></td>
         <td><%= user.from %></td>
         <td><%= user.duration %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-      </tr>
+
+        <td></td>
+      </tr> -->
+      <p>
+      <img src="<%= user.profile_pic %>"> </p>
+      <p>
+        <strong>Name:</strong>
+        <%= user.full_name %>
+      </p>
+
+      <p>
+        <strong>Age:</strong>
+        <%= user.age %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= user.description %>
+      </p>
+
+      <%= link_to "#{user.first_name}'s profile", user %>
+      <br></br>
+
     <% end %>
-  </tbody>
-</table>
+  <!-- </tbody>
+</table> -->
 
 
 
-<br>
 <%= link_to 'Homepage', root_path %>
-<%= link_to 'New User', new_user_path %>
+

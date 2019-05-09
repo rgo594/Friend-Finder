@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user1 = User.find(params[:id])
+    add_friend
   end
 
   # GET /users/new
@@ -61,6 +63,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_friend
+    @user_event = UserEvent.create(user_id: current_user2, event_id: 20, follower_id: @user1.id)
+    redirect_to '/users'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -69,6 +76,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :age, :description, :from, :duration, :email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :age, :description, :from, :duration, :email, :password, :password_confirmation, :profile_pic, :zip)
     end
 end

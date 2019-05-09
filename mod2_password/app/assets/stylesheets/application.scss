@@ -11,7 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
 
- 
+
+ *= require_tree .
+ *= require_self
+ *= require bootstrap-datepicker3
  */
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
