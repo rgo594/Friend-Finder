@@ -37,20 +37,14 @@
   <%= @user.email %>
 </p>
 
+
+
+<% if @user1 != current_user2 %>
+  <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => @user1.id )%>
+<% end %>
+
 <% if @user1 == current_user2 %>
   <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>
 
-<%# <%= link_to "Broken Follow Link", users_add_friend_path,  method: :post%> %>
-<%= button_to "broken follow link", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => @user1.id )%>
-
-
-<%= form_tag users_add_friend_path, method: :post do %>
-  <%= submit_tag "Broken Follow Button"%>
-<% end %>
-
-
-
 <%= link_to 'Back', users_path %>
-
-<%= @friend %>
