@@ -1,0 +1,15 @@
+
+<%= @event.title %>
+<%= @event.location %>
+<%= @event.date %>
+<%= @event.description %>
+<%= @user %>
+
+
+<% if @user_id == current_user.id %>
+  <%= button_to "Delete", @event, method: :delete %>
+<% end %>
+
+<% if @user_id == current_user.id %>
+  <%= button_to "Edit", "/events/#{@event.id}/edit", method: :get %>
+<% end %>

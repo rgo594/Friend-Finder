@@ -12,14 +12,19 @@
 
 ActiveRecord::Schema.define(version: 2019_05_04_181502) do
 
-  create_table "user_events", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.string "location"
     t.datetime "date"
+  end
+
+  create_table "user_events", force: :cascade do |t|
+    t.integer "event_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_user_events_on_event_id"
     t.index ["user_id"], name: "index_user_events_on_user_id"
   end
 
@@ -29,11 +34,13 @@ ActiveRecord::Schema.define(version: 2019_05_04_181502) do
     t.integer "age"
     t.string "description"
     t.string "from"
+    t.integer "zip"
     t.string "duration"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile_pic"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
