@@ -1,6 +1,13 @@
-<%= @user_event.title %>
-<%= @user_event.location %>
-<%= @user_event.date %>
-<%= @user_event.description %>
-<%= @user_event.user.first_name %>
-<%= button_to "Delete", @user_event, method: :delete %>
+<h1><%= @user_event.title %></h1>
+<p><br> location: <%= @user_event.location %><br/>
+<br>date: <%= @user_event.date %></br>
+<br>description: <%= @user_event.description %></br>
+<br>organizer: <%= @user_event.user.first_name %> </br></p>
+
+<% if @user_event.user.first_name == current_user.first_name %>
+  <%= button_to "Delete", @user_event, method: :delete %>
+<% end %>
+
+<% if @user_event.user.first_name == current_user.first_name %>
+  <%= button_to "Edit", "/user_events/#{@user_event.id}/edit", method: :get %>
+<% end %>
