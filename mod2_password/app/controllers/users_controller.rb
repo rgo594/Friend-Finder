@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user1 = User.find(params[:id])
-    add_friend
+    # add_friend
+    my_friends
   end
 
   # GET /users/new
@@ -65,6 +66,7 @@ class UsersController < ApplicationController
 
   def add_friend
     @user_event = UserEvent.create(user_id: params[:user_id], follower: params[:follower])
+    redirect_to "/users/#{@user_event.follower}"
   end
 
   def my_friends

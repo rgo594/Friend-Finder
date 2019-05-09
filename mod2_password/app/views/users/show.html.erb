@@ -38,10 +38,11 @@
 </p>
 
 
+<% if @follower_ids.any?{|eid| eid == @user1.id} %>
   <%= button_to "Unfollow", users_unfollow_path(:controller => "users", :id => @user1.id), method: :delete %>
+<% end %>
 
-
-<% if @user1 != current_user2 %>
+<% if @follower_ids.none?{|eid| eid == @user1.id} %>
   <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => @user1.id )%>
 <% end %>
 
