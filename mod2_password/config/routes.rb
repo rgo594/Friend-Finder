@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'home#index'
-  post 'users/add_friend'
+  post 'users/add_friend', to: 'users#add_friend'
   get '/users/my_friends', to: 'users#my_friends'
   get '/events/my_events', to: 'events#my_events'
   resources :users, :user_events, :events

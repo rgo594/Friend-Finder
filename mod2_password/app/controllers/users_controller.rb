@@ -11,8 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user1 = User.find(params[:id])
-    FRIEND << @user1
-    @friend = FRIEND
+    add_friend
   end
 
   # GET /users/new
@@ -64,16 +63,10 @@ class UsersController < ApplicationController
     end
   end
 
-  # def my_friends
-  #   @friend = FRIEND
-  # end
-  #
-  # def add_friend
-  #   @user1.each do |user|
-  #     @id = user.id
-  #   end
-  #   @friends = [] << @id
-  # end
+  def add_friend
+    @user_event = UserEvent.create(user_id: current_user2, event_id: 20, follower_id: @user1.id)
+    redirect_to '/users'
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

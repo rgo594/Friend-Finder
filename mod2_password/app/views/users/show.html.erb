@@ -43,7 +43,11 @@
 
 <%  %>
 
-<%= link_to "Add Friend", users_add_friend_path, method: :post %>
+<%= link_to "Broken Follow Link", users_add_friend_path, method: :post %>
+
+<%= form_tag users_add_friend_path, method: :post do %>
+  <%= submit_tag "Broken Follow Button"%>
+<% end %>
 
 <!-- <% if @user1 == current_user2 %>
   <%= button_to "Delete", @user, method: :delete %>
@@ -53,4 +57,3 @@
 <%= link_to 'Back', users_path %>
 
 <%= @friend %>
-
