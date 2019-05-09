@@ -1,4 +1,4 @@
-
+<%provide(:page_title, @story.title)%>
 <h1>Story Board</h1>
 
 <div style="width:400px; height=200px">
@@ -24,13 +24,3 @@
 <%= link_to "Edit", edit_story_path(@story) %>
 <%= link_to "Delete", story_path, method: :delete %>
 <%end%>
-
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>

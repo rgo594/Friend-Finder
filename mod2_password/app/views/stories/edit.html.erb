@@ -1,11 +1,4 @@
-<h2>Editting Page</h2>
+<%provide(:page_title, "Edit #{@story.title}")%>
 
-<%= form_for @story do |f|%>
-<%= f.label :title%>
-<%= f.text_field :title%>
-<%= f.label :content%>
-<%= f.area_field :content%>
-<%= f.label :img_url%>
-<%= f.text_field :img_url%>
-<%= f.submit%>
-<% end %>
+<h2>Editting Page</h2>
+<%= render 'form', story: @story %>
