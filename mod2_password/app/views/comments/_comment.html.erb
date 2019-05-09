@@ -1,0 +1,17 @@
+
+<ul>
+
+<li><% @comments.each do |comment| %></li>
+  <li><% @comment = comment %>
+    <% if @comment.story_id == @story.id%>
+    Posted By <%= @comment.user.first_name %> | <h4><%= @comment.context%></h4>
+    <p><% if @comment.user_id == session[:user_id] %> <%= link_to "Delete", story_comment_path(@comment) , method: :delete %> <%end%></p></li>
+    <% end %>
+    <% end %>
+
+
+
+
+  <br>
+
+</ul>

@@ -1,0 +1,18 @@
+<h1>Story</h1>
+<ul>
+  <li><% @stories.each do |story| %></li>
+  <li><%= story.title %> <%= link_to "View Story", story_path(story) %>
+
+      <% end %>
+</ul>
+
+<%=link_to "New Story", new_story_path %>
+
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
