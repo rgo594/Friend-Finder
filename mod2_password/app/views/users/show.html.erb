@@ -41,17 +41,14 @@
   <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>
 
-<%  %>
+<%# <%= link_to "Broken Follow Link", users_add_friend_path,  method: :post%> %>
+<%= button_to "broken follow link", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => @user1.id )%>
 
-<%= link_to "Broken Follow Link", users_add_friend_path, method: :post %>
 
 <%= form_tag users_add_friend_path, method: :post do %>
   <%= submit_tag "Broken Follow Button"%>
 <% end %>
 
-<!-- <% if @user1 == current_user2 %>
-  <%= button_to "Delete", @user, method: :delete %>
-<% end %> BE CAREFUL OF THIS ONE !_! -->
 
 
 <%= link_to 'Back', users_path %>

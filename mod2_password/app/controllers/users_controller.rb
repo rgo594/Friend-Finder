@@ -64,8 +64,9 @@ class UsersController < ApplicationController
   end
 
   def add_friend
-    @user_event = UserEvent.create(user_id: current_user2, event_id: 20, follower_id: @user1.id)
-    redirect_to '/users'
+    @user_event = UserEvent.create
+    # @user_event.update_attribute(:follower, 5)
+    flash[:message] = @user_event.errors.full_messages
   end
 
   private

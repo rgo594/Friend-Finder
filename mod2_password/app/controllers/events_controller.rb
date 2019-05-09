@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
     def show
       @event = Event.find(params[:id])
+      @user_event = UserEvent.all
       user_name
       user_id
     end
@@ -71,7 +72,10 @@ class EventsController < ApplicationController
       @event_ids = @user_event.map{|ue| ue.event_id}
     end
 
-
+    def follow_event
+      @user_event = UserEvent.create(user_id: current_user2.id, event_id: 20, follower_id: 1)
+      redirect_to '/users'
+    end
 
     private
 

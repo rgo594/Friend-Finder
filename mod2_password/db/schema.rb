@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 2019_05_09_015342) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "location"
+    t.datetime "date"
+  end
+
   create_table "stories", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -32,19 +39,12 @@ ActiveRecord::Schema.define(version: 2019_05_09_015342) do
     t.index ["user_id"], name: "index_stories_on_user_id"
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.string "location"
-    t.datetime "date"
-  end
-
   create_table "user_events", force: :cascade do |t|
     t.integer "event_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "follower_id"
+    t.integer "follower"
     t.index ["event_id"], name: "index_user_events_on_event_id"
     t.index ["user_id"], name: "index_user_events_on_user_id"
   end
