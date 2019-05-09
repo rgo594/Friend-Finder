@@ -7,7 +7,7 @@
   </div>
   <div class="card-body">  <% @stories.each do |story| %>
     <h5 class="card-title"><%=story.title%></h5>
-    <p class="card-text"> <%=story.content %> </p>
+    <p class="card-text"> <%=story.content%> </p>
     -----------------
     <a href=<%=story_path(story)%>, class="btn btn-primary">view story</a>
     <% end %>
