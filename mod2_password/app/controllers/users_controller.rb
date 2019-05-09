@@ -67,6 +67,12 @@ class UsersController < ApplicationController
     @user_event = UserEvent.create(user_id: params[:user_id], follower: params[:follower])
   end
 
+  def my_friends
+    @users = User.all
+    @user_event = UserEvent.select{|ue| ue.user_id == current_user.id}
+    @follower_ids = @user_event.map{|ue| ue.follower}
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
