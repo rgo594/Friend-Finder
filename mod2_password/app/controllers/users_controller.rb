@@ -64,9 +64,26 @@ class UsersController < ApplicationController
   end
 
   def add_friend
-    @user_event = UserEvent.create(user_id: current_user2, event_id: 20, follower_id: @user1.id)
-    redirect_to '/users'
+    @user_event = UserEvent.create(user_id: params[:user_id], follower: params[:follower])
   end
+
+  def my_friends
+    @users = User.all
+    @user_event = UserEvent.select{|ue| ue.user_id == current_user.id}
+    @follower_ids = @user_event.map{|ue| ue.follower}
+  end
+
+  def unfollow
+      @user = User.find(params[:id])
+      UserEvent.select do |user|
+        if user.follower == @user.id
+          user.destroy
+        end
+      end
+      redirect_to @user
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -78,4 +95,3 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :age, :description, :from, :duration, :email, :password, :password_confirmation, :profile_pic, :zip)
     end
-end
