@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
-
+<%= link_to 'Homepage', root_path %>
 <!-- <table>
   <thead>
     <tr>
@@ -40,9 +40,10 @@
       </p>
 
       <p>
-        <strong>Description:</strong>
+        <strong>Bio:</strong>
         <%= user.description %>
       </p>
+
 
       <%= link_to "#{user.first_name}'s profile", user %>
       <br></br>
@@ -50,8 +51,3 @@
     <% end %>
   <!-- </tbody>
 </table> -->
-
-
-
-<%= link_to 'Homepage', root_path %>
-

@@ -54,7 +54,7 @@ class EventsController < ApplicationController
     def user_name
       UserEvent.select do |event|
          if event.event_id == @event.id
-           @user = event.user.first_name
+           @user = event.user.full_name
         end
       end
     end
@@ -71,12 +71,12 @@ class EventsController < ApplicationController
       @events = Event.all
       @user_event = UserEvent.select{|ue| ue.user_id == current_user.id}
       @event_ids = @user_event.map{|ue| ue.event_id}
+      joiner_call
     end
 
     def joiner_call
-      @events = Event.all
       @find_user = UserEvent.select{|ue| ue.user_id == current_user.id}
-      @event_ids = @find_user.map{|ue| ue.joiner}
+      @joiner_ids = @find_user.map{|ue| ue.joiner}
     end
 
     def join_event

@@ -1,7 +1,9 @@
+<h2>Following</h2>
+
 <% @users.each do |user| %>
   <% if @follower_ids.any?{|eid| eid == user.id} %>
     <br><%= link_to user.full_name, user %></br>
-    <br><p> Location: <%= user.zip %>
-    Date: <%= user.duration %></p></br>
+    <br><p> Age: <%= user.age %></br>
+    <br>  Bio: <%= user.description %></p></br>
   <% end %>
 <% end %>

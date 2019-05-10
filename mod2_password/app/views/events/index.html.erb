@@ -1,10 +1,10 @@
 <h1> Events </h1>
-
-<br><% if current_user %>
+<br></br>
+<% if current_user %>
   <%= button_to "Create Event", "/events/new", method: :get %>
 <% end %>
 
-<% @events.each do |event| %>
+<br><% @events.each do |event| %>
   <%= link_to event.title, event %>
   <p>location: <%= event.location%>
   date: <%= event.date %></p></br>
