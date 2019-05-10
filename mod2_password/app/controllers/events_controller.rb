@@ -79,6 +79,12 @@ class EventsController < ApplicationController
       @joiner_ids = @find_user.map{|ue| ue.joiner}
     end
 
+    # def users_in_event
+    #   @users = User.all
+    #   @find_joiner= UserEvent.select{|ue| ue.joiner == ue.user_id}
+    #   @users3 = @find_user.map{|ue| ue.user_id}
+    # end
+
     def join_event
       @user_event = UserEvent.create(user_id: params[:user_id], joiner: params[:joiner])
       redirect_to "/events/#{@user_event.joiner}"

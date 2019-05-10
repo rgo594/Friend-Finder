@@ -8,6 +8,9 @@
 .coo {
   line-height: 5px;
 }
+.text {
+  text-size: 20px;
+}
 
 </style>
 
@@ -19,10 +22,9 @@
   <br></br>
 </div>
 
-
-<% if current_user %>
+<br><% if current_user %>
   <%= button_to "Create Event", "/events/new", method: :get %>
-<% end %>
+<% end %></br>
 
 <div class="coo">
   <br></br>
@@ -36,5 +38,8 @@
 
 
 </div>
-<br></br>
-<%= link_to 'Back', :back %>
+
+
+<div class="text">
+<%= link_to 'Homepage', root_path %>
+</div>

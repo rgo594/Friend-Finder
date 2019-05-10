@@ -71,8 +71,13 @@ class UsersController < ApplicationController
 
   def my_friends
     @users = User.all
+
     @user_event = UserEvent.select{|ue| ue.user_id == current_user.id}
     @follower_ids = @user_event.map{|ue| ue.follower}
+
+    @follower_event = UserEvent.select{|ue| ue.follower == current_user.id}
+    @user_ids = @follower_event.map{|ue| ue.user_id}
+
   end
 
   def unfollow

@@ -8,9 +8,11 @@
 </style>
 
 <div class="events">
-  <h2>Following</h2>
+  <h2>Follow Page</h2>
 </div>
 
+
+<h3>Following </h3>
 <% @users.each do |user| %>
   <% if @follower_ids.any?{|eid| eid == user.id} %>
     <br><%= link_to user.full_name, user %></br>
@@ -18,3 +20,14 @@
     <br>  Bio: <%= user.description %></br></p>
   <% end %>
 <% end %>
+<br></br>
+<h3>Followers </h3>
+<% @users.each do |user| %>
+  <% if @user_ids.any?{|eid| eid == user.id} %>
+    <br><%= link_to user.full_name, user %></br>
+    <p><br> Age: <%= user.age %></br>
+    <br>  Bio: <%= user.description %></br></p>
+  <% end %>
+<% end %>
+
+<%= link_to 'Homepage', root_path %>
