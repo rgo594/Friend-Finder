@@ -42,12 +42,16 @@
   <%= button_to "Unfollow", users_unfollow_path(:controller => "users", :id => @user1.id), method: :delete %>
 <% end %>
 
-<% if @follower_ids.none?{|eid| eid == @user1.id} %>
-  <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => @user1.id )%>
+<% if @user1.id != current_user.id %>
+  <% if @follower_ids.none?{|eid| eid == @user1.id} %>
+    <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => @user1.id )%>
+  <% end %>
 <% end %>
 
 <% if @user1 == current_user2 %>
   <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>
+
+
 
 <%= link_to 'Back', users_path %>
