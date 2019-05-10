@@ -1,17 +1,14 @@
+<div class="row">
+  <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-xs-center">
+    <h1><%= @event.title%></h1>
+    <p><%=@event.location%></p>
+    <p><%= @event.date%></p>
+    <%= @event.description%>
+  </div>
+</div>
 
-<%= @event.title %>
-<%= @event.location %>
-<%= @event.date %>
-<%= @event.description %>
-<%= @user %>
-
-
-
-<%# <%= link_to "follow", events_follow_event_path, method: :post  %> %>
-
-<%# <%= form_tag users_add_friend_path, method: :post do %> %>
-  <%# <%= submit_tag "follow" %> %>
-<%# <% end %> %>
+<%= link_to "Back", events_path%>
+<%= link_to "home", root_path%>
 
 <% if @user_id == current_user.id %>
   <%= button_to "Delete", @event, method: :delete %>

@@ -17,13 +17,12 @@
           <%= link_to "Sign in", login_path %>
           <%= link_to "New Journey", signup_path%>
         <%end%>
-        
+
     </header>
-    <%= render 'layouts/navbar'%>
-    <div class="container <%= controller_name %> <%= action_name%>">
+
       <%= yield %>
 
-    </div>
+    
 
 
   </body>

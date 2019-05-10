@@ -1,6 +1,11 @@
 
-<div class="container"><h1> Friend Fiender </h1>
+<div class="container">
+  <div id="home">
+    <div class='landing-text'>
+      <h1>FIND A FRIEND</h1>
+      <h3>Where You Can Have more Story To Tell</h3>
 
+  <div class="container <%= controller_name %> <%= action_name%>">
 
 </div>
 
@@ -9,16 +14,18 @@
     <%= link_to "Log Out", logout_path %>
   <br><%= link_to "Profile", current_user %>
 
-  <%= link_to "Create Event", "/events/new" %>
-  <%= link_to "My Events", "/events/my_events" %>
-  <%= link_to "Stories", "/stories" %>
-  <%= link_to "Following", "/users/my_friends" %>
+  <%= link_to "Create Event", "/events/new" %> <br>
+  <%= link_to "My Events", "/events/my_events" %>    <br>
+  <%= link_to "Stories", "/stories" %>    <br>
+  <%= link_to "Following", "/users/my_friends" %>   <br>
 <% else %>
-  <%= link_to "Sign Up", signup_path %> or
-  <%= link_to "Log In", login_path %>
+  <%= link_to "Sign Up", signup_path %> or  <br>
+  <%= link_to "Log In", login_path %>  <br>
 
 <% end %></br>
 <br><%= link_to "Users", '/users' %> <%= link_to "Events", '/events' %></br>
+
+
 
 
 <p id=”notice”><%= notice %></p>
