@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   root 'home#index'
-
+  
   delete '/stories/:story_id/comments/:id', to: 'comments#destroy', as: "delete"
 
   delete '/events/leave_event', to: 'events#leave_event'

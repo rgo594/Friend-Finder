@@ -1,13 +1,13 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#home 
-.landing-text {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
+
+#home {
+  background: url(https://images.pexels.com/photos/2225228/pexels-photo-2225228.jpeg?cs=srgb&dl=feet-footwear-pavement-2225228.jpg&fm=jpg) repeat center center fixed;
+  display: table;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  background-size: cover;
 }
-.landing-text h1 {
-  font-size: 500%;
-  font-weight: 700;
-}
+

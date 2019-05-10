@@ -1,0 +1,50 @@
+.events.index {
+  .card {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #181818;
+    height: 400px;
+    margin-bottom:  20px;
+    .card-block {
+      padding: 10px;
+      .btn-read {
+        background-color: #e8e8e8;
+        font-weight: 300;
+        border-radius: 0;
+        color: black;
+        &:hover {
+          background-color: #d8d8d8;
+        }
+      }
+      .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        a {
+          color: black;
+          text-decoration: none;
+        }
+      }
+      card-text {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 34em) {
+  .events.index .card {
+    height: 440px;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .events.index .card {
+    height: 420px;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  .events.index .card {
+    height: 425px;
+  }
+}

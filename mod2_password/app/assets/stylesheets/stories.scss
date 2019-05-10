@@ -1,3 +1,35 @@
 // Place all the styles related to the stories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#index {
+  background: url(https://images.pexels.com/photos/1934259/pexels-photo-1934259.jpeg?cs=srgb&dl=caffeine-camera-classic-1934259.jpg&fm=jpg) repeat center center fixed;
+  display: table;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  background-size: cover;
+}
+.show {
+  background: url(https://cdn.pixabay.com/photo/2017/01/24/10/58/sand-2005066_960_720.jpg) repeat center center fixed;
+  display: table;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  background-size: cover;
+
+  h1, h2, p {
+  text-align: center;
+  color: black;
+
+}
+
+h1, h2, {
+text-align: center;
+color: black;
+border: 1px solid black;
+  margin: 25px 50px 75px;
+  background-color: lightblue;
+}
+
+
+}

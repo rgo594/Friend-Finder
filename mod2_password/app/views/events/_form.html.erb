@@ -1,0 +1,27 @@
+<%= form_with(model: event, local: true) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <%= form.label :date %>
+  <%= form.datetime_field :date, data:{ provide:'datepicker' } %>
+
+  <div class="field">
+  <%= form.label :description %>
+  <%= form.text_field :description%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to "Back", user_events_path%>

@@ -1,4 +1,6 @@
-<style>
+
+
+<!-- <style>
 .events {
   background-color: black;
   color: white;
@@ -12,15 +14,33 @@
   <h1>Story</h1>
 </div>
 
-<ul>
-  <% @stories.each do |story| %>
-  <%= story.title %> <%= link_to "View Story", story_path(story) %>
+<ul> -->
+<!--   <% @stories.each do |story| %> -->
+<!--   <%= story.title %> <%= link_to "View Story", story_path(story) %> -->
 
-      <% end %>
-</ul>
+
+
+
+
+<%provide(:page_title, 'All Story')%>
+<h1>Story</h1>
+
+<div class="card">
+  <div class="card-header">
+  </div>
+  <div class="card-body">  <% @stories.each do |story| %>
+    <h5 class="card-title"><%=story.title%></h5>
+    <p class="card-text"> <%=story.content%> </p>
+    -----------------
+    <a href=<%=story_path(story)%>, class="btn btn-primary">view story</a>
+    <% end %>
+  </div>
+</div>
 
 <%=link_to "New Story", new_story_path %>
+ | <%=link_to "Home", root_path%>
 
 
 
-<%= link_to 'Back', :back %>
+<!-- <%= link_to 'Back', :back %> -->
+
