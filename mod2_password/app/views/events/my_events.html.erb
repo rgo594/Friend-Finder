@@ -1,22 +1,59 @@
-<h1> My Events </h1>
-<br></br>
-<h3>Events Created </h3>
+<style>
+.events {
+  background-color: black;
+  color: white;
+  ;
+  padding: 10px;
+}
+.coo {
+  line-height: 10px;
+}
+.coo2 {
+  line-height: 20px;
 
+}
+.text {
+font-size: 15px;
+}
+</style>
+
+
+
+
+<div class="events">
+  <h1>My Events</h1>
+</div>
+
+
+<div class="coo2">
+
+<h2>Events Created</h2>
+
+<div class="coo">
 <% @events.each do |event| %>
   <% if @event_ids.any?{|eid| eid == event.id} %>
-    <br><%= link_to event.title, event %></br>
-    <br><p> Location: <%= event.location %>
-    Date: <%= event.date %></p></br>
+    <h3><br><%= link_to event.title, event %></br></h3>
+    <br><div class="text">
+    Location: <%= event.location %>
+    Date: <%= event.date %></div>
   <% end %>
 <% end %>
+<div class="coo2">
+    <br></br>
+</div>
+</div>
+</div>
 
-<h3>Events Joined</h3>
+<h2>Events Joined</h2>
+<div class="coo">
 <% @events.each do |event| %>
   <% if @joiner_ids.any?{|eid| eid == event.id} %>
-    <br><%= link_to event.title, event %></br>
-    <br><p> Location: <%= event.location %>
-    Date: <%= event.date %></p></br>
+    <h3><br><%= link_to event.title, event %></br></h3>
+    <br><div class="text">
+     Location: <%= event.location %>
+    Date: <%= event.date %></div></br>
   <% end %>
 <% end %>
+</div>
 <br></br>
 <%= link_to 'Back', :back %>

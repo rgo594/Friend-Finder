@@ -1,3 +1,20 @@
+<style>
+.events {
+  background-color: black;
+  color: white;
+  ;
+  padding: 10px;
+  font-size: 40px;
+}
+</style>
+
+<% if @user1 == current_user2 %>
+  <div class="events">
+    <h1>Profile</h1>
+  </div>
+<% end %>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -54,4 +71,4 @@
 
 
 
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', :back %>
