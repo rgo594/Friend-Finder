@@ -7,13 +7,33 @@
   </div>
 </div>
 
-<%= link_to "Back", events_path%>
-<%= link_to "home", root_path%>
+
+
+<h2><%= @event.title %></h2>
+<p><br>Location: <%= @event.location %></br>
+<br>Date: <%= @event.date %></br>
+<br>Organizer: <%= @user %></br>
+<br><%= @event.description %></br></p>
+
 
 <% if @user_id == current_user.id %>
-  <%= button_to "Delete", @event, method: :delete %>
+  <%= link_to "Delete", @event, method: :delete %>
 <% end %>
 
+
 <% if @user_id == current_user.id %>
-  <%= button_to "Edit", "/events/#{@event.id}/edit", method: :get %>
+  <%= link_to "Edit", "/events/#{@event.id}/edit", method: :get %>
 <% end %>
+
+<% if @user_id != current_user.id %>
+  <% if @joiner_ids.none?{|eid| eid == @event.id} %>
+    <%= button_to "Join Event", events_join_event_path(:controller => "events" , :user_id => current_user.id , :joiner => @event.id )%>
+  <% end %>
+<% end %>
+
+
+<% if @joiner_ids.any?{|eid| eid == @event.id} %>
+  <%= button_to "Leave Event", events_leave_event_path(:controller => "events", :id => @event.id ), method: :delete %>
+<% end %>
+
+<%= link_to 'Back', :back %>

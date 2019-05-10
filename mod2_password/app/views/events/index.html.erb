@@ -1,22 +1,43 @@
+<style>
+.events {
+  background-color: black;
+  color: white;
+  ;
+  padding: 10px;
+}
+.coo {
+  line-height: 5px;
+}
+
+</style>
+
+<div class="events">
 <h1> Events </h1>
-<div class="container">
-  <div class="col-sm-6 col-lg-4">
-    <div class="card">
-      <div class="card-topper" style='evnt-title: (<%@events.each do |event|%>)'></div>
-        <div class="card-block">
-          <h4 class='card-title'> <%=link_to event.title, event %></h4>
-          <p class='card-text'> <%= truncate(event.description, length: 100) %></p>
-          <%= link_to "visit", event, class: 'btn btn-read' %>
-          <%end%>
-        </div>
 
-    </div>
+</div>
 
-  </div>
+<div class="coo">
+  <br></br>
+</div>
 
-<br><% if current_user %>
+
+<% if current_user %>
   <%= button_to "Create Event", "/events/new", method: :get %>
 <% end %>
 
 
+<div class="coo">
+  <br></br>
 </div>
+
+<% @events.each do |event| %>
+  <h3><%= link_to event.title, event %></h3>
+  <p>location: <%= event.location%>
+  date: <%= event.date %></p>
+<% end %>
+
+
+</div>
+<br></br>
+<%= link_to 'Back', :back %>
+

@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user1 = User.find(params[:id])
-    add_friend
+    # add_friend
+    my_friends
   end
 
   # GET /users/new
@@ -30,8 +31,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to login_path, notice: 'User was successfully created.' }
+        format.json { render login_path, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -65,6 +66,7 @@ class UsersController < ApplicationController
 
   def add_friend
     @user_event = UserEvent.create(user_id: params[:user_id], follower: params[:follower])
+    redirect_to "/users/#{@user_event.follower}"
   end
 
   def my_friends

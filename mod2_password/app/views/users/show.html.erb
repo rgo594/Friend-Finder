@@ -1,3 +1,20 @@
+<style>
+.events {
+  background-color: black;
+  color: white;
+  ;
+  padding: 10px;
+  font-size: 40px;
+}
+</style>
+
+<% if @user1 == current_user2 %>
+  <div class="events">
+    <h1>Profile</h1>
+  </div>
+<% end %>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -23,7 +40,7 @@
 </p>
 
 <p>
-  <strong>Duration:</strong>
+  <strong>Time Lived in NYC:</strong>
   <%= @user.duration %>
 </p>
 
@@ -38,15 +55,20 @@
 </p>
 
 
+<% if @follower_ids.any?{|eid| eid == @user1.id} %>
   <%= button_to "Unfollow", users_unfollow_path(:controller => "users", :id => @user1.id), method: :delete %>
+<% end %>
 
-
-<% if @user1 != current_user2 %>
-  <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => @user1.id )%>
+<% if @user1.id != current_user.id %>
+  <% if @follower_ids.none?{|eid| eid == @user1.id} %>
+    <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => @user1.id )%>
+  <% end %>
 <% end %>
 
 <% if @user1 == current_user2 %>
   <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>
 
-<%= link_to 'Back', users_path %>
+
+
+<%= link_to 'Back', :back %>
