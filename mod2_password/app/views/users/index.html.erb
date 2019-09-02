@@ -18,6 +18,11 @@ font-size: 20px;
   width: 100%;
   height: auto;
 }
+.card {
+  display:inline-block;
+  width: 18rem;
+  margin: 25px;
+}
 </style>
 
 <div class="users"
@@ -30,7 +35,7 @@ font-size: 20px;
 
     <% @users.each do |user| %>
 
-    <div class="card" style="width: 18rem;">
+    <!-- <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="<%= user.profile_pic %>" alt="Card image cap">
       <div class="card-body">
         <h4 class="card-title"><%= user.full_name %></h4>
@@ -38,7 +43,19 @@ font-size: 20px;
         <p class="card-text"><%= user.description %></p>
         <a href="<%= "http://localhost:3000/users/#{user.id}" %>" class="btn btn-primary"><%= "#{user.first_name}'s profile" %></a>
       </div>
-    </div>
+    </div> -->
+
+
+          <div class="card">
+            <img class="card-img-top" src="<%= user.profile_pic %>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= user.full_name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= user.age %></h6>
+              <p class="card-text"><%= user.description %></p>
+              <a href="<%= "http://localhost:3000/users/#{user.id}" %>" class="btn btn-primary"><%= "#{user.first_name}'s profile" %></a>
+            </div>
+          </div>
+
 
       <!-- <img src="<%= user.profile_pic %>">
       <div class="text">
