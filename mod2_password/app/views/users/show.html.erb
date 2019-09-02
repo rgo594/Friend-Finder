@@ -6,6 +6,11 @@
   padding: 10px;
   font-size: 40px;
 }
+.profile_pic {
+  width: 100%;
+  height: auto;
+}
+
 </style>
 
 <% if @user1 == current_user2 %>
@@ -18,7 +23,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<img src="<%= @user.profile_pic %>"> </p>
+<img class="profile_pic" src="<%= @user.profile_pic %>"> </p>
 <p>
   <strong>Name:</strong>
   <%= @user.full_name %>
@@ -68,7 +73,5 @@
 <% if @user1 == current_user2 %>
   <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>
-
-
 
 <%= link_to 'Back', users_path %>

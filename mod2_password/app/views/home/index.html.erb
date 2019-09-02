@@ -36,16 +36,17 @@
       <h3><%= link_to "Events", '/events' %></h3>
       <p>Look for events</p>
     </div>
+    <br><%= link_to "Log Out", logout_path %></br>
     <% else %>
-    <p><%= link_to "Sign Up", signup_path %> or
-    <%= link_to "Log In", login_path %></p>
+    <h3><%= link_to "Sign Up", signup_path %> or
+    <%= link_to "Log In", login_path %></h3>
   </div>
   <% end %>
 </div>
 
 
 
-<br><%= link_to "Log Out", logout_path %></br>
+
 
 
 
