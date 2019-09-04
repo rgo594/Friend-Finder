@@ -10,7 +10,15 @@
   width: 100%;
   height: auto;
 }
-
+.trait {
+  display:inline-block;
+  width: 18rem;
+  margin: 25px;
+  position: absolute;
+  left: 30%;
+}
+.test {
+}
 </style>
 
 <% if @user1 == current_user2 %>
@@ -22,43 +30,41 @@
 
 <p id="notice"><%= notice %></p>
 
-<p>
-<img class="profile_pic" src="<%= @user.profile_pic %>"> </p>
-<p>
-  <strong>Name:</strong>
-  <%= @user.full_name %>
-</p>
+  <p> <img class="profile_pic" src="<%= @user.profile_pic %>"> </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
+<div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @user.description %>
-</p>
+  <h3>
+    <%= @user.full_name %>,
+    <%= @user.age %>
+  </h3>
 
-<p>
-  <strong>From:</strong>
-  <%= @user.from %>
-</p>
 
-<p>
-  <strong>Time Lived in NYC:</strong>
-  <%= @user.duration %>
-</p>
+  <h6>
+    From: <%= @user.from %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time Lived in NYC: <%= @user.duration %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Zip: <%= @user.zip %>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @user.zip %>
-</p>
+  </h6>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <p>
 
+
+
+
+
+
+
+
+  </p>
+
+  <p>
+    <%= @user.description %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+</div>
 
 <% if @follower_ids.any?{|eid| eid == @user1.id} %>
   <%= button_to "Unfollow", users_unfollow_path(:controller => "users", :id => @user1.id), method: :delete %>

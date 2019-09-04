@@ -1,28 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <style>
-.users {
-  background-color: black;
-  color: white;
-  ;
-  padding: 10px;
-  font-size: 40px;
-}
-.coo {
-  line-height: 5px;
-}
-.text {
-font-size: 20px;
-}
-.profile_pic {
-  width: 100%;
-  height: auto;
-}
-.card {
-  display:inline-block;
-  width: 18rem;
-  margin: 25px;
-}
+  body {
+    background-color: #b19cd9;
+  }
+
+  .users {
+    background-color: black;
+    color: white;
+    ;
+    padding: 10px;
+    font-size: 40px;
+  }
+  .coo {
+    line-height: 5px;
+  }
+  .text {
+    font-size: 20px;
+  }
+  .profile_pic {
+    width: 100%;
+    height: auto;
+  }
+  .card {
+    display:inline-block;
+    width: 18rem;
+    margin: 25px;
+  }
 </style>
 
 <div class="users"
@@ -45,7 +49,6 @@ font-size: 20px;
       </div>
     </div> -->
 
-
           <div class="card">
             <img class="card-img-top" src="<%= user.profile_pic %>" alt="Card image cap">
             <div class="card-body">
@@ -53,7 +56,9 @@ font-size: 20px;
               <h6 class="card-subtitle mb-2 text-muted"><%= user.age %></h6>
               <p class="card-text"><%= user.description %></p>
               <a href="<%= "http://localhost:3000/users/#{user.id}" %>" class="btn btn-primary"><%= "#{user.first_name}'s profile" %></a>
+              <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => user.id )%>
             </div>
+
           </div>
 
 

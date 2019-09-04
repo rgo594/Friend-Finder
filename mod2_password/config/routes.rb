@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   delete '/users/unfollow', to: 'users#unfollow'
   post '/events/join_event', to: 'events#join_event'
   post '/users/add_friend', to: 'users#add_friend'
+  post '/events/add_follower', to: 'events#follow_event'
   get '/users/my_friends', to: 'users#my_friends'
   get '/events/my_events', to: 'events#my_events'
 

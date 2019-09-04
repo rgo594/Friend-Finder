@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_09_015342) do
+ActiveRecord::Schema.define(version: 2019_09_04_203448) do
 
   create_table "comments", force: :cascade do |t|
     t.string "context"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 2019_05_09_015342) do
     t.string "description"
     t.string "location"
     t.datetime "date"
+  end
+
+  create_table "followers", force: :cascade do |t|
+    t.string "name"
+    t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_followers_on_event_id"
   end
 
   create_table "stories", force: :cascade do |t|

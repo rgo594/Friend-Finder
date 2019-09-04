@@ -90,6 +90,10 @@ class EventsController < ApplicationController
       redirect_to "/events/#{@user_event.joiner}"
     end
 
+    def follow_event
+      @follower = Follower.create(name: params[:name], event_id: params[:event_id])
+    end
+
     def leave_event
         @event = Event.find(params[:id])
         UserEvent.select do |event|
