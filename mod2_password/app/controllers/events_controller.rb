@@ -86,12 +86,22 @@ class EventsController < ApplicationController
     # end
 
     def join_event
+      full_name = "#{current_user.first_name} #{current_user.last_name}"
       @user_event = UserEvent.create(user_id: params[:user_id], joiner: params[:joiner])
-      redirect_to "/events/#{@user_event.joiner}"
+      @follower = Follower.create(name: full_name, event_id: @user_event.joiner)
+      # redirect_to "/events/#{@user_event.joiner}"
     end
 
-    def follow_event
-      @follower = Follower.create(name: params[:name], event_id: params[:event_id])
+    # def follow_event
+    #   @follower = Follower.create(name: current_user.first_name, event_id: @user_event.joiner)
+    # end
+    # def follow_event
+    #   @follower = Follower.create(name: params[:name], event_id: params[:event_id])
+    # end
+
+    def jf
+      follow_event
+      join_event
     end
 
     def leave_event
