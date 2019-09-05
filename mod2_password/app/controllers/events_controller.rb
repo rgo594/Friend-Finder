@@ -99,15 +99,15 @@ class EventsController < ApplicationController
     #   @follower = Follower.create(name: params[:name], event_id: params[:event_id])
     # end
 
-    def jf
-      follow_event
-      join_event
-    end
-
     def leave_event
         @event = Event.find(params[:id])
         UserEvent.select do |event|
           if event.joiner == @event.id
+            event.delete
+          end
+        end
+        Follower.select do |event|
+          if event.event_id == @event.id
             event.delete
           end
         end
