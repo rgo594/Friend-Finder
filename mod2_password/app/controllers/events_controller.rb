@@ -6,6 +6,8 @@ class EventsController < ApplicationController
     def show
       @event = Event.find(params[:id])
       @user_event = UserEvent.all
+      @follower_ids = Follower.select{ |follower| follower[:event_id] == @event[:id] }
+      @followers = @follower_ids.map{ |follower| follower[:name] }
       joiner_call
       user_name
       user_id
@@ -98,6 +100,10 @@ class EventsController < ApplicationController
     # def follow_event
     #   @follower = Follower.create(name: params[:name], event_id: params[:event_id])
     # end
+
+    def display_followers
+      @display_followers = Follower.select{|x| x.event_id == @event.id }
+    end
 
     def leave_event
         @event = Event.find(params[:id])
