@@ -5,6 +5,8 @@ class EventsController < ApplicationController
 
     def show
       @event = Event.find(params[:id])
+      @user_event = UserEvent.all
+      joiner_call
       user_name
       user_id
     end
@@ -52,7 +54,7 @@ class EventsController < ApplicationController
     def user_name
       UserEvent.select do |event|
          if event.event_id == @event.id
-           @user = event.user.first_name
+           @user = event.user.full_name
         end
       end
     end
@@ -69,9 +71,48 @@ class EventsController < ApplicationController
       @events = Event.all
       @user_event = UserEvent.select{|ue| ue.user_id == current_user.id}
       @event_ids = @user_event.map{|ue| ue.event_id}
+      joiner_call
     end
 
+    def joiner_call
+      @find_user = UserEvent.select{|ue| ue.user_id == current_user.id}
+      @joiner_ids = @find_user.map{|ue| ue.joiner}
+    end
 
+    # def users_in_event
+    #   @users = User.all
+    #   @find_joiner= UserEvent.select{|ue| ue.joiner == ue.user_id}
+    #   @users3 = @find_user.map{|ue| ue.user_id}
+    # end
+
+    def join_event
+      full_name = "#{current_user.first_name} #{current_user.last_name}"
+      @user_event = UserEvent.create(user_id: params[:user_id], joiner: params[:joiner])
+      @follower = Follower.create(name: full_name, event_id: @user_event.joiner)
+      # redirect_to "/events/#{@user_event.joiner}"
+    end
+
+    # def follow_event
+    #   @follower = Follower.create(name: current_user.first_name, event_id: @user_event.joiner)
+    # end
+    # def follow_event
+    #   @follower = Follower.create(name: params[:name], event_id: params[:event_id])
+    # end
+
+    def jf
+      follow_event
+      join_event
+    end
+
+    def leave_event
+        @event = Event.find(params[:id])
+        UserEvent.select do |event|
+          if event.joiner == @event.id
+            event.delete
+          end
+        end
+        redirect_to @event
+      end
 
     private
 

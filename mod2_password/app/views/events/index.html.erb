@@ -1,11 +1,45 @@
+<style>
+.events {
+  background-color: black;
+  color: white;
+  ;
+  padding: 10px;
+}
+.coo {
+  line-height: 5px;
+}
+.text {
+  text-size: 20px;
+}
+
+</style>
+
+<div class="events">
 <h1> Events </h1>
+</div>
+
+<div class="coo">
+  <br></br>
+</div>
 
 <br><% if current_user %>
   <%= button_to "Create Event", "/events/new", method: :get %>
-<% end %>
+<% end %></br>
+
+<div class="coo">
+  <br></br>
+</div>
 
 <% @events.each do |event| %>
-  <%= link_to event.title, event %>
+  <h3><%= link_to event.title, event %></h3>
   <p>location: <%= event.location%>
-  date: <%= event.date %></p></br>
+  date: <%= event.date %></p>
 <% end %>
+
+
+</div>
+
+
+<div class="text">
+<%= link_to 'Homepage', root_path %>
+</div>

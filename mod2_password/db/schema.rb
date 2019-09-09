@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_09_015342) do
+ActiveRecord::Schema.define(version: 2019_09_04_203448) do
 
   create_table "comments", force: :cascade do |t|
     t.string "context"
@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 2019_05_09_015342) do
     t.datetime "updated_at", null: false
     t.index ["story_id"], name: "index_comments_on_story_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "location"
+    t.datetime "date"
+  end
+
+  create_table "followers", force: :cascade do |t|
+    t.string "name"
+    t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_followers_on_event_id"
   end
 
   create_table "stories", force: :cascade do |t|
@@ -32,19 +47,13 @@ ActiveRecord::Schema.define(version: 2019_05_09_015342) do
     t.index ["user_id"], name: "index_stories_on_user_id"
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.string "location"
-    t.datetime "date"
-  end
-
   create_table "user_events", force: :cascade do |t|
     t.integer "event_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "follower_id"
+    t.integer "follower"
+    t.integer "joiner"
     t.index ["event_id"], name: "index_user_events_on_event_id"
     t.index ["user_id"], name: "index_user_events_on_user_id"
   end

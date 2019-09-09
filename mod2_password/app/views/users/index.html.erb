@@ -1,57 +1,91 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<style>
+  body {
+    background-color: #b19cd9;
+  }
 
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Bio</th>
-      <th>From</th>
-      <th>Duration</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead> -->
+  .users {
+    background-color: black;
+    color: white;
+    ;
+    padding: 10px;
+    font-size: 40px;
+  }
+  .coo {
+    line-height: 5px;
+  }
+  .text {
+    font-size: 20px;
+  }
+  .profile_pic {
+    width: 100%;
+    height: auto;
+  }
+  .card {
+    display:inline-block;
+    width: 18rem;
+    margin: 25px;
+  }
+</style>
 
-  <!-- <tbody> -->
+<div class="users"
+  <h1> Users </h1>
+</div>
+
+<div class="coo">
+  <br></br>
+</div>
+
     <% @users.each do |user| %>
-      <!-- <tr>
-        <td><%= user.full_name %></td>
-        <td><%= user.age %></td>
-        <td><%= user.description %></td>
-        <td><%= user.from %></td>
-        <td><%= user.duration %></td>
-        <td><%= user.email %></td>
 
-        <td></td>
-      </tr> -->
-      <p>
-      <img src="<%= user.profile_pic %>"> </p>
-      <p>
-        <strong>Name:</strong>
+    <!-- <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="<%= user.profile_pic %>" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title"><%= user.full_name %></h4>
+        <h5 class="card-title"><%= user.age %></h5>
+        <p class="card-text"><%= user.description %></p>
+        <a href="<%= "http://localhost:3000/users/#{user.id}" %>" class="btn btn-primary"><%= "#{user.first_name}'s profile" %></a>
+      </div>
+    </div> -->
+
+          <div class="card">
+            <img class="card-img-top" src="<%= user.profile_pic %>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= user.full_name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= user.age %></h6>
+              <p class="card-text"><%= user.description %></p>
+              <a href="<%= "http://localhost:3000/users/#{user.id}" %>" class="btn btn-primary"><%= "#{user.first_name}'s profile" %></a>
+              <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => user.id )%>
+            </div>
+
+          </div>
+
+
+      <!-- <img src="<%= user.profile_pic %>">
+      <div class="text">
+        <strong></strong>
         <%= user.full_name %>
-      </p>
+      </div>
 
-      <p>
+      <div class="text">
         <strong>Age:</strong>
         <%= user.age %>
-      </p>
+      </div>
 
-      <p>
-        <strong>Description:</strong>
+      <div class="text">
+        <strong>Bio:</strong>
         <%= user.description %>
-      </p>
+      </div>
 
-      <%= link_to "#{user.first_name}'s profile", user %>
+      <div class="text">
+      <%=link_to "#{user.first_name}'s profile", user %>
       <br></br>
+      </div> -->
 
     <% end %>
   <!-- </tbody>
 </table> -->
-
-
-
-<%= link_to 'Homepage', root_path %>
-
+<div class="text">
+  <%= link_to 'Homepage', root_path %>
+</div>

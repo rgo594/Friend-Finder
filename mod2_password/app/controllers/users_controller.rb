@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user1 = User.find(params[:id])
-    add_friend
+    # add_friend
+    my_friends
   end
 
   # GET /users/new
@@ -30,8 +31,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        format.html { redirect_to login_path, notice: 'User was successfully created.' }
+        format.json { render login_path, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -64,9 +65,32 @@ class UsersController < ApplicationController
   end
 
   def add_friend
-    @user_event = UserEvent.create(user_id: current_user2, event_id: 20, follower_id: @user1.id)
-    redirect_to '/users'
+    @user_event = UserEvent.create(user_id: params[:user_id], follower: params[:follower])
+    redirect_to "/users/#{@user_event.follower}"
   end
+
+  def my_friends
+    @users = User.all
+
+    @user_event = UserEvent.select{|ue| ue.user_id == current_user.id}
+    @follower_ids = @user_event.map{|ue| ue.follower}
+
+    @follower_event = UserEvent.select{|ue| ue.follower == current_user.id}
+    @user_ids = @follower_event.map{|ue| ue.user_id}
+
+  end
+
+  def unfollow
+      @user = User.find(params[:id])
+      UserEvent.select do |user|
+        if user.follower == @user.id
+          user.destroy
+        end
+      end
+      redirect_to @user
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -78,4 +102,3 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :age, :description, :from, :duration, :email, :password, :password_confirmation, :profile_pic, :zip)
     end
-end
