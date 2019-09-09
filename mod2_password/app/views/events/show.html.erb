@@ -28,8 +28,11 @@
   <%= button_to "Leave Event", events_leave_event_path(:controller => "events", :id => @event.id ), method: :delete %>
 <% end %>
 
+
+
   <% @followers.each do |follower| %>
-    <%= follower %>
+  <% coo = @users.find_by(first_name: follower) %>
+    <%= link_to "#{follower} #{coo.last_name}", "http://localhost:3000/users/#{coo.id}" %>
   <% end %>
 
 
