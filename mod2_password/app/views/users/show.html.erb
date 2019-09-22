@@ -7,8 +7,8 @@
   font-size: 40px;
 }
 .profile_pic {
-  width: 100%;
-  height: auto;
+  width:600px;
+  height:400px;
 }
 .trait {
   display:inline-block;
@@ -30,9 +30,10 @@
 
 <p id="notice"><%= notice %></p>
 
-  <p> <img class="profile_pic" src="<%= @user.profile_pic %>"> </p>
+  <center>
+    <img class="profile_pic" src="<%= @user.profile_pic %>">
 
-<div>
+
 
   <h3>
     <%= @user.full_name %>,
@@ -64,7 +65,7 @@
     <strong>Email:</strong>
     <%= @user.email %>
   </p>
-</div>
+
 
 <% if @follower_ids.any?{|eid| eid == @user1.id} %>
   <%= button_to "Unfollow", users_unfollow_path(:controller => "users", :id => @user1.id), method: :delete %>
@@ -81,3 +82,4 @@
 <% end %>
 
 <%= link_to 'Back', users_path %>
+</center>

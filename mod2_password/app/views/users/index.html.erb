@@ -52,14 +52,14 @@
           <div class="card">
             <img class="card-img-top" src="<%= user.profile_pic %>" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title"><%= user.full_name %></h5>
+              <h5 class="card-title"><%= link_to "#{user.full_name}", "http://localhost:3000/users/#{user.id}" %></h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= user.age %></h6>
               <p class="card-text"><%= user.description %></p>
-              <a href="<%= "http://localhost:3000/users/#{user.id}" %>" class="btn btn-primary"><%= "#{user.first_name}'s profile" %></a>
               <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => user.id )%>
             </div>
 
           </div>
+          
 
 
       <!-- <img src="<%= user.profile_pic %>">
