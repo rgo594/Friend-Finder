@@ -6,6 +6,11 @@
   ;
   padding: 10px;
 }
+.card {
+  display:inline-block;
+  width: 18rem;
+  margin: 25px;
+}
 </style>
 
 <div class="events">
@@ -16,18 +21,29 @@
 <h3>Following </h3>
 <% @users.each do |user| %>
   <% if @follower_ids.any?{|eid| eid == user.id} %>
-    <br><%= link_to user.full_name, user %></br>
-    <p><br> Age: <%= user.age %></br>
-    <br>  Bio: <%= user.description %></br></p>
+  <div class="card">
+    <img class="card-img-top" src="<%= user.profile_pic %>" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to "#{user.full_name}", "http://localhost:3000/users/#{user.id}" %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= user.age %></h6>
+      <p class="card-text"><%= user.description %></p>
+    </div>
+
+  </div>
   <% end %>
 <% end %>
 <br></br>
 <h3>Followers </h3>
 <% @users.each do |user| %>
   <% if @user_ids.any?{|eid| eid == user.id} %>
-    <br><%= link_to user.full_name, user %></br>
-    <p><br> Age: <%= user.age %></br>
-    <br>  Bio: <%= user.description %></br></p>
+  <div class="card">
+    <img class="card-img-top" src="<%= user.profile_pic %>" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to "#{user.full_name}", "http://localhost:3000/users/#{user.id}" %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= user.age %></h6>
+      <p class="card-text"><%= user.description %></p>
+    </div>
+  </div>
   <% end %>
 <% end %>
 

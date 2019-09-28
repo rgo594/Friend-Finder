@@ -33,29 +33,15 @@
   <center>
     <img class="profile_pic" src="<%= @user.profile_pic %>">
 
-
-
   <h3>
     <%= @user.full_name %>,
     <%= @user.age %>
   </h3>
 
-
   <h6>
     From: <%= @user.from %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time Lived in NYC: <%= @user.duration %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Zip: <%= @user.zip %>
 
   </h6>
-
-  <p>
-
-
-
-
-
-
-
-
-  </p>
 
   <p>
     <%= @user.description %>
@@ -67,19 +53,22 @@
   </p>
 
 
-<% if @follower_ids.any?{|eid| eid == @user1.id} %>
-  <%= button_to "Unfollow", users_unfollow_path(:controller => "users", :id => @user1.id), method: :delete %>
-<% end %>
-
-<% if @user1.id != current_user.id %>
-  <% if @follower_ids.none?{|eid| eid == @user1.id} %>
-    <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => @user1.id )%>
+  <% if @follower_ids.any?{|eid| eid == @user1.id} %>
+    <%= button_to "Unfollow", users_unfollow_path(:controller => "users", :id => @user1.id), method: :delete %>
   <% end %>
-<% end %>
 
-<% if @user1 == current_user2 %>
-  <%= link_to 'Edit', edit_user_path(@user) %>
-<% end %>
+  <% if @user1.id != current_user.id %>
+    <% if @follower_ids.none?{|eid| eid == @user1.id} %>
+      <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => @user1.id )%>
+    <% end %>
+  <% end %>
+
+  <% if @user1 == current_user2 %>
+    <%= link_to 'Edit', edit_user_path(@user) %>
+  <% end %>
+
+
+  <%= @follower_ids %>
 
 <%= link_to 'Back', users_path %>
 </center>

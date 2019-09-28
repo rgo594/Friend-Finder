@@ -15,6 +15,11 @@
 .text {
 font-size: 15px;
 }
+.card {
+  display:inline-block;
+  width: 18rem;
+  margin: 25px;
+}
 </style>
 
 
@@ -32,10 +37,14 @@ font-size: 15px;
 <div class="coo">
 <% @events.each do |event| %>
   <% if @event_ids.any?{|eid| eid == event.id} %>
-    <h3><br><%= link_to event.title, event %></br></h3>
-    <br><div class="text">
-    Location: <%= event.location %>
-    Date: <%= event.date %></div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to event.title, event %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= event.location%></h6>
+      <p class="card-text"><%= event.date %></p>
+    </div>
+  </div>
+
   <% end %>
 <% end %>
 <div class="coo2">
@@ -45,15 +54,22 @@ font-size: 15px;
 </div>
 
 <h2>Events Joined</h2>
-<div class="coo">
+
+
 <% @events.each do |event| %>
   <% if @joiner_ids.any?{|eid| eid == event.id} %>
-    <h3><br><%= link_to event.title, event %></br></h3>
-    <br><div class="text">
-     Location: <%= event.location %>
-    Date: <%= event.date %></div></br>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to event.title, event %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= event.location%></h6>
+      <p class="card-text"><%= event.date %></p>
+    </div>
+  </div>
   <% end %>
 <% end %>
-</div>
+
+
+
+
 <br></br>
 <%= link_to 'Homepage', root_path %>

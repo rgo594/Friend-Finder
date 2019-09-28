@@ -11,6 +11,11 @@
 .text {
   text-size: 20px;
 }
+.card {
+  display:inline-block;
+  width: 18rem;
+  margin: 25px;
+}
 
 </style>
 
@@ -31,15 +36,11 @@
 </div>
 
 <% @events.each do |event| %>
-  <h3><%= link_to event.title, event %></h3>
-  <p>location: <%= event.location%>
-  date: <%= event.date %></p>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to event.title, event %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= event.location%></h6>
+      <p class="card-text"><%= event.date %></p>
+    </div>
+  </div>
 <% end %>
-
-
-
-
-
-<div class="text">
-<%= link_to 'Homepage', root_path %>
-</div>
