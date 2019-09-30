@@ -12,9 +12,14 @@
   text-size: 20px;
 }
 .card {
-  display:inline-block;
-  width: 18rem;
+  width: 40rem;
   margin: 25px;
+  left: 50%;
+}
+.card-container {
+  width: 71.42855%;
+  padding-right: 16px;
+  /* box-sizing: border-box; */
 }
 
 </style>
@@ -34,7 +39,7 @@
 <div class="coo">
   <br></br>
 </div>
-
+<div class="card-container">
 <% @events.each do |event| %>
   <div class="card">
     <div class="card-body">
@@ -44,3 +49,4 @@
     </div>
   </div>
 <% end %>
+</div>

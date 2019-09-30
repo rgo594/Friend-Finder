@@ -59,7 +59,6 @@
               <h5 class="card-title"><%= link_to "#{user.full_name}", "http://localhost:3000/users/#{user.id}" %></h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= user.age %></h6>
               <p class="card-text"><%= user.description %></p>
-              <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => user.id )%>
             </div>
           </div>
         <% end %>
@@ -91,3 +90,5 @@
 <div class="text">
   <%= link_to 'Homepage', root_path %>
 </div>
+
+<%# <%= button_to "Follow", users_add_friend_path(:controller => "users" , :user_id => current_user2 , :follower => user.id )%>
