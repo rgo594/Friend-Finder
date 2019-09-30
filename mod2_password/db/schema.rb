@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_203448) do
+ActiveRecord::Schema.define(version: 2019_09_30_155316) do
 
   create_table "comments", force: :cascade do |t|
     t.string "context"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_09_04_203448) do
     t.string "description"
     t.string "location"
     t.datetime "date"
+    t.string "img"
   end
 
   create_table "followers", force: :cascade do |t|
