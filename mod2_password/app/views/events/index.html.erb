@@ -11,6 +11,16 @@
 .text {
   text-size: 20px;
 }
+.card {
+  width: 40rem;
+  margin: 25px;
+  left: 50%;
+}
+.card-container {
+  width: 71.42855%;
+  padding-right: 16px;
+  /* box-sizing: border-box; */
+}
 
 </style>
 
@@ -29,17 +39,14 @@
 <div class="coo">
   <br></br>
 </div>
-
+<div class="card-container">
 <% @events.each do |event| %>
-  <h3><%= link_to event.title, event %></h3>
-  <p>location: <%= event.location%>
-  date: <%= event.date %></p>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to event.title, event %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= event.location%></h6>
+      <p class="card-text"><%= event.date %></p>
+    </div>
+  </div>
 <% end %>
-
-
-
-
-
-<div class="text">
-<%= link_to 'Homepage', root_path %>
 </div>
