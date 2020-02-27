@@ -5,8 +5,9 @@
   margin: 25px;
 }
 </style>
-
+<center>
 <h2><%= @event.title %></h2>
+<img src="<%= @event.img %>">
 <p><br>Location: <%= @event.location %></br>
 <br>Date: <%= @event.date %></br>
 <br>Organizer: <%= @user %></br>
@@ -51,5 +52,5 @@
   <% end %>
 
 
-
+</center>
 <%= link_to 'Back', events_path %>
